@@ -20,30 +20,26 @@
     
 
 
-    <!-- <div class="nav">
-        <span> Currencies Application </span>
-        <ul>
-            <li>Home</li>
-            <li>Links</li>
-        </ul>
-    </div> -->
+    <div class="nav">
+        <span> <h2>Currencies transfer Application </h2></span>
+    </div>
 
     <div class="container">
         <div class="currencies">
             
             <div class="number">
-                <h4>Type the number:</h4>
-                <input type="text" value="" id="inner">                
+                <h2>The Value:</h2>
+                <input type="number" value="" required id="inner">                
             </div>            
             
             <div class="from">
-                <h4>From:</h4>
-                <input type="text" value="" id="from">    
+                <h2>From:</h2>
+                <input type="text" value="" required id="from">    
             </div>
             
             <div class="to">
-                <h4>To: </h4>
-                <input type="text" value="" id="to">
+                <h2>To: </h2>
+                <input type="text" value="" required id="to">
             </div>        
             
             <button onclick="get_from_to()">Convert</button>

@@ -1,6 +1,9 @@
 
+let button_clicked = 0;
+
 function get_from_to()
 {
+    button_clicked+=1;
     fetch("https://api.currencyfreaks.com/v2.0/rates/latest?apikey=df3d1160dff84e749941f49c74e61b7f")
     .then((result) =>
     {
@@ -26,73 +29,77 @@ function get_from_to()
 
         console.log("=".repeat(40))
 
-     
-        console.log("From " + from + " to " + to)        
+    
+        // if (!isNaN(from) || !isNaN(to))
+        // alert ("You must enter a valid currency code!")
+        if(from in currency.rates && to in currency.rates)
+        {
+            console.log("From " + from + " to " + to)        
         
 
 
-        if(currency.rates[from] > currency.rates[to]  || currency.rates[from] == currency.rates[to])
-        {
-            var Rate = (currency.rates[from]/currency.rates[to])
-        }
-
-        if(currency.rates[from] < currency.rates[to])
-        {
-            var Rate = (currency.rates[to]/currency.rates[from])
-        }
-                
-        // console.log(Rate)
-
-
-
-        var element = document.getElementById("inner");
-        
-        var element_val = element.value
-
-        // get the val in console
-
-        var final_out = element_val*Rate
-
-        if(currency.rates[from] > currency.rates[to])
-        {
-            var final_out = element_val/Rate
-        }
-
-        if(currency.rates[from] < currency.rates[to])
-        {
+            if(currency.rates[from] > currency.rates[to]  || currency.rates[from] == currency.rates[to])
+            {
+                var Rate = (currency.rates[from]/currency.rates[to])
+            }
+    
+            if(currency.rates[from] < currency.rates[to])
+            {
+                var Rate = (currency.rates[to]/currency.rates[from])
+            }
+                    
+            // console.log(Rate)
+    
+    
+    
+            var element = document.getElementById("inner");
+            
+            var element_val = element.value
+    
+            // get the val in console
+    
             var final_out = element_val*Rate
+    
+            if(currency.rates[from] > currency.rates[to])
+            {
+                var final_out = element_val/Rate
+            }
+    
+            if(currency.rates[from] < currency.rates[to])
+            {
+                var final_out = element_val*Rate
+            }
+    
+    
+            console.log("The " + element_val + " " + from + " ---> "+"equals " + final_out + " "+ to );    
+            
+    
+    
+            // creation 
+            
+            let currencies_box = document.querySelector(".currencies")
+    
+            let result_box = document.querySelector(".output")
+    
+            let createdText = document.createTextNode("")
+            result_box.appendChild(createdText);
+            result_box.innerHTML = "";
+
+            if( button_clicked === 1) // to make sure if my result box is clear 
+            {
+                let createdText = document.createTextNode(element_val + " " + from + " is equal " + final_out.toFixed(3) + " " + to)
+                result_box.appendChild(createdText);
+                button_clicked-=1
+            }
+            
+            console.log(currencies_box);                        
         }
-
-
-        console.log("The " + element_val + " " + from + " ---> "+"equals " + final_out + " "+ to );    
-        // document.write("The " + element_val + " " + from + " ---> "+"equals " + final_out + " "+ to ); 
-        // document.write(`<h2> ${final_out}  </h2>`)   
-
-
-       // creation 
+        else
+        {
+            console.log(from + " is fstk")            
+            alert("please enter the valid currency CODE!")
+        }               
         
-       let select_ell = document.querySelector(".currencies")
-
-       let out_box = document.querySelector(".output")
-
-       let createdText = document.createTextNode(final_out.toFixed(2) + " " + to)
-
-
-        // add the ele.
-        
-        // select_ell.setAttributeNode = (createdAtt);
-        
-
-        // Append text to ele
-        out_box.appendChild(createdText);
-
-
-        // Append el to ele
-        select_ell.appendChild(out_box);
-
-
-        // Append ele to body not in console
-        document.body.appendChild(select_ell);
-        console.log(select_ell);
-     })           
+     })  
+     
 }

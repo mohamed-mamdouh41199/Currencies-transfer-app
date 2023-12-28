@@ -21,8 +21,8 @@ body
 {
     font-family: 'Archivo', sans-serif;
     /* background: linear-gradient(45deg, #e53b90, #000000);     */
-    /* background: linear-gradient(45deg, #000000, #e53b90);     */
-    background: linear-gradient(45deg, #21b5cc, #000000);
+    background: linear-gradient(45deg, #000000, #e53b90);    
+    /* background: linear-gradient(45deg, #21b5cc, #000000); */
     /* background: linear-gradient(45deg, #000000, #21b5cc); */
     /* background-image: linear-gradient(rgb(60, 156, 160),rgb(0, 0, 0)); */
     background-size: contain;
@@ -61,16 +61,24 @@ body
 
 .nav
 {
-    background-color: rgb(49, 151, 151);
+    background-color: #620d3762;
     padding-left: 40px;
     padding-right: 40px;
     /* padding-top: 10px; */
     /* padding-bottom: 10px; */
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     align-items: center;
     font-size: 18px;
-    box-shadow: 0 10px 6px rgba(6, 6, 6, 0.385);
+    box-shadow: 0 10px 6px rgba(183, 183, 183, 0.385);
+    color: white;
+    font-style:oblique;
+    width: 50%;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    /* float: left; */
 }
 
 .nav ul
@@ -118,7 +126,7 @@ body
 }
 
 
-.currencies h4
+.currencies h2
 {
   color: white;
   /* font-weight: bold; */
@@ -195,16 +203,26 @@ body
   width: 100px;
   margin-left: auto;
   margin-right: auto;
+  font-size: 20px;
   /* margin-top: 100px; */
 }  
 
+.currencies button:hover
+{
+  font-size: 30px;
+  height: 50px;
+  width: 130px;
+  background-color:  rgba(255, 255, 255, 0.645);
+  color: rgb(0, 0, 0);
+}
+
 .currencies .output
 {
-  width: 150px;
+  width: 350px;
   background-color: rgba(255, 255, 255, 0.3);
   border: none;
   border-radius: 20px;
-  height: 45px;
+  height: 65px;
   color: white;
   margin: 100px auto 0;
   display: flex;  
